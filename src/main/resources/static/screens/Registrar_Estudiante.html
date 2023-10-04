@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudiante</title>
+    <link rel="stylesheet" href="../assets/css/register_estudiante.css">
+    <link rel="stylesheet" href="../assets/css/componentes/header.css">
+    <link rel="stylesheet" href="../assets/css/base/base.css">
+    <link rel="stylesheet" href="../assets/css/componentes/boton.css">
+    <link rel="stylesheet" href="../assets/css/componentes/inputs.css">
+    <link rel="stylesheet" href="../assets/css/componentes/card.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Prata&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header container">
+        <img
+            src="../assets/img/logoJM.svg"
+            alt="Logo JULIAN Y SANTIAGO"
+            class="header__logo"
+        />
+        <nav>
+            <ul class="header__list-nav">
+                <li class="header__link">
+                    <a href="Registrar_Estudiante.html">Registrar Estudiantes</a>
+                </li>
+                <li class="header__link">
+                    <a href="../index.html">Lista Estudiantes</a>
+                </li>
+                <li class="header__link">
+                    <a href="Editar_Estudiante.html">Editar Estudiantes</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container flex flex--center flex--column">
+        <section class="card cadastro">
+            <h1 class="card__title">Registro Estudiante</h1>
+            <form class="flex flex--column" data-form>
+                <div class="input-container">
+                    <input 
+                        name="nombre"
+                        id="nombre"
+                        class="input"
+                        type="text"
+                        placeholder="Nombre"
+                        required
+                        data-nombre
+                    >
+                    <label class="input-label" for="nombre">Nombre</label>
+                </div>
+                <div class="input-container">
+                    <input 
+                        id="apellido"
+                        class="input"
+                        type="text"
+                        placeholder="Apellido"
+                        required
+                        data-apellido
+                    >
+                    <label class="input-label" for="apellido">Apellido</label>
+                </div>
+                <div class="input-container">
+                    <input 
+                        name="email"
+                        id="email"
+                        class="input"
+                        type="text"
+                        placeholder="email"
+                        required
+                        data-email
+                    >
+                    <label class="input-label" for="email">Email</label>
+                </div>
+                <button type="submit" class="button">Enviar</button>
+            </form>
+        </section>
+    </main>
+</body>
+<script type="module" src="../controllers/Registro.js"></script>
+</html>

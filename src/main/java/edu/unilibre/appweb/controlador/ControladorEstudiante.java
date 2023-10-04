@@ -2,7 +2,6 @@ package edu.unilibre.appweb.controlador;
 
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,37 +13,41 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import edu.unilibre.appweb.modelo.Estudiante;
 import edu.unilibre.appweb.repositorio.RepositorioEstudiante;
 
-//HTTP://
+
+//http://localhost:8080/api/estudiantes
+
 @RestController
+
 @RequestMapping("/api/")
 
 public class ControladorEstudiante {
+
     @Autowired
 
     private RepositorioEstudiante repositorioEstudiante;
 
-    //Metodos HTTP (CRUD)
+    // Metodos HTTP (CRUD)
 
-    //POST Create
+    // POST Create
+
     @PostMapping("/crea")
 
     public ResponseEntity<Estudiante> creaEstudiante(@RequestBody Estudiante estudiante)
 
     {
 
-        Estudiante nuevoEstudiante =  repositorioEstudiante.save(estudiante);
+        Estudiante nuevoEstudiante = repositorioEstudiante.save(estudiante);
 
         return new ResponseEntity<>(nuevoEstudiante, HttpStatus.CREATED);
 
     }
 
-    //GET Retrieve
+    // GET Retrieve
 
-    @GetMapping("/estudiantes")
+    @GetMapping("/estudiante")
 
     public List<Estudiante> traeEstudiantes() {
 
@@ -52,23 +55,21 @@ public class ControladorEstudiante {
 
     }
 
- 
-
     @GetMapping("/estudiante/{id}")
 
-    public Optional<Estudiante> traeUnEstudiante(@PathVariable Integer id) {
+        public Optional<Estudiante> traeUnEstudiante(@PathVariable Integer id) {
 
-        return repositorioEstudiante.findById(id);
+            return repositorioEstudiante.findById(id);
 
-    }
+        }
 
-   
 
-    //PUT Update
+    // PUT Update
 
     @PutMapping("/actualiza/{id}")
 
-    public ResponseEntity<Estudiante> actualizaEstudiante(@PathVariable Integer id, @RequestBody Estudiante estudiante) {
+    public ResponseEntity<Estudiante> actualizaEstudiante(@PathVariable Integer id,
+            @RequestBody Estudiante estudiante) {
 
         Optional<Estudiante> estudianteActual = repositorioEstudiante.findById(id);
 
@@ -78,25 +79,19 @@ public class ControladorEstudiante {
 
         }
 
-       
+        estudianteActual.get().setNombre(estudiante.getNombre());
 
-            estudianteActual.get().setNombre(estudiante.getNombre());
+        estudianteActual.get().setApellido(estudiante.getApellido());
 
-            estudianteActual.get().setApellido(estudiante.getApellido());
+        estudianteActual.get().setCorreo(estudiante.getCorreo());
 
-            estudianteActual.get().setCorreo(estudiante.getCorreo());
+        repositorioEstudiante.save(estudianteActual.get());
 
-            repositorioEstudiante.save(estudianteActual.get());
-
-            return new ResponseEntity<Estudiante>(HttpStatus.OK);
-
-       
+        return new ResponseEntity<Estudiante>(HttpStatus.OK);
 
     }
 
- 
-
-    //DELETE Delete
+    // DELETE Delete
 
     @DeleteMapping("/borra/{id}")
 
@@ -109,12 +104,10 @@ public class ControladorEstudiante {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 
         }
-
         repositorioEstudiante.delete(estudiante.get());
 
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 
- 
-
     }
+
 }

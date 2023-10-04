@@ -1,8 +1,11 @@
 package edu.unilibre.appweb.repositorio;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import edu.unilibre.appweb.modelo.Estudiante;
 
-public interface RepositorioEstudiante extends JpaRepository<Estudiante, Integer>{
-    
+public interface RepositorioEstudiante extends JpaRepository<Estudiante, Integer> {
+
+    List<Estudiante> findAllByOrderByIdAsc();
 }

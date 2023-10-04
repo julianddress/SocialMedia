@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Lista Estudiantes</title>
+        <link rel="icon" href="../assets/img/doguitoadm.svg" type="image/x-icon" />
+        <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap"
+        rel="stylesheet"
+        />
+        <link
+        href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+        rel="stylesheet"
+        />
+        <link rel="stylesheet" href="../assets/css/base/base.css" />
+        <link rel="stylesheet" href="../assets/css/componentes/header.css" />
+        <link rel="stylesheet" href="../assets/css/componentes/card.css" />
+        <link rel="stylesheet" href="../assets/css/register_estudiante.css" />
+        <link rel="stylesheet" href="../assets/css/componentes/inputs.css" />
+        <link rel="stylesheet" href="../assets/css/componentes/boton.css" />
+</head>
+<body>
+    <header class="header container">
+        <img
+            src="../assets/img/logoJM.svg"
+            alt="Logo JULIAN Y SANTIAGO"
+            class="header__logo"
+        />
+        <nav>
+            <ul class="header__list-nav">
+                <li class="header__link">
+                    <a href="Registrar_Estudiante.html">Registrar Estudiantes</a>
+                </li>
+                <li class="header__link">
+                    <a href="../index.html">Lista Estudiantes</a>
+                </li>
+                <li class="header__link">
+                    <a href="Editar_Estudiante.html">Editar Estudiantes</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container flex flex--center flex--column">
+        <section class="card cadastro">
+            <h1 class="card__title">Editar</h1>
+            <form action="#" class="flex flex--column" data-form>
+                <div class="input-container">
+                <input
+                    name="nombre"
+                    id="nombre"
+                    class="input"
+                    type="text"
+                    placeholder="nombre"
+                    required
+                    data-nombre
+                />
+                <label class="input-label" for="nombre">Nombre</label>
+                <span class="input-menssage-error">Este campo es requerido</span>
+                </div>
+                <div class="input-container">
+                    <input
+                    name="apellido"
+                    id="apellido"
+                    class="input"
+                    type="text"
+                    placeholder="apellido"
+                    required
+                    data-apellido
+                    />
+                    <label class="input-label" for="apellido">Apellido</label>
+                    <span class="input-menssage-error">Este campo es requerido</span>
+                </div>
+                <div class="input-container">
+                <input
+                    name="email"
+                    id="email"
+                    class="input"
+                    type="text"
+                    placeholder="email"
+                    required
+                    data-email
+                />
+                <label class="input-label" for="email">Email</label>
+                <span class="input-menssage-error">Este campo es requerido</span>
+                </div>
+                <button type="submit" class="button">Editar cliente</button>
+            </form>
+        </section>
+    </main>
+    <script type="module" src="../controllers/Edicion.js"></script>
+</body>
+</html>
+
+
+<!-- AJAX ASYNCRONOUS  -->
