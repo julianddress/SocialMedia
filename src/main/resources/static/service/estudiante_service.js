@@ -4,7 +4,7 @@
 // POR DEFECTO TOMA EL METODO GET
 const listaEstudiantes = async () => {
     try {
-        const respuesta = await fetch("http://localhost:9000/api/estudiantes");
+        const respuesta = await fetch("http://localhost:9000/api/estudiante");
         const datos = await respuesta.json();
         console.log(datos)
         return datos;
